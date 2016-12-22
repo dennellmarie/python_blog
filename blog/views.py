@@ -78,6 +78,10 @@ def login_post():
     login_user(user)
     return redirect(request.args.get('next') or url_for("entries"))
 
+@app.route("/logout", methods=["GET"])
+def logout_get():
+    return redirect(url_for("login_get"))
+
 @app.route("/entry/<int:id>")
 def single_entry(id):
     entry = session.query(Entry).filter_by(id=id).one()
