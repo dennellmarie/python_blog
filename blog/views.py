@@ -79,9 +79,36 @@ def login_post():
     return redirect(request.args.get('next') or url_for("entries"))
 
 @app.route("/entry/<int:id>")
-def singlepost(id):
-    entry = session.query(Post).filter_by(id=id).one()
+def single_entry(id):
+    entry = session.query(Entry).filter_by(id=id).one()
     return render_template("single_entry.html", entry=entry, id=id)
+
+@app.route("/entry/<int:id>/edit", methods=['GET', 'POST'])
+def edit_entry(id):
+    entryToEdit= session.query(Entry).filter_by(id=id).one()
+    if request.method == 'POST':
+        if request.form['title']:
+            entryToEdit.title = request.form['title']
+            entryToEdit.content = request.form['content']
+            #entryToEdit.datetime = datetime.datetime.now()
+            session.add(entryToEdit)
+            session.commit()
+        return redirect(url_for('entries'))
+    else:
+        return render_template('edit_entry.html', p=entryToEdit)
+
+@app.route("/entry/<int:id>/delete", methods = ["GET", "POST"])
+def delete_entry(id):
+    entryToDelete = session.query(Entry).filter_by(id=id).one()
+    if request.method == 'POST':
+        session.delete(entryToDelete)
+        session.commit()
+        return redirect(url_for('entries'))
+    else:
+        return render_template('delete_entry.html', i=entryToDelete)
+
+
+
 
 
 
