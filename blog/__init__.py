@@ -16,4 +16,4 @@ from . import filters  # import Jinja filters
 # they make use of the object
 
 # add the login system
-#from . import login
+from . import login

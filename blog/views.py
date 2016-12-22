@@ -10,10 +10,11 @@ from .database import session, Entry
 
 # to handle log-in
 from flask import flash
-from flask.ext.login import login_user
+from flask_login import login_user
 from werkzeug.security import check_password_hash
 from .database import User
-from flask.ext.login import login_required
+from flask_login import login_required
+from flask_login import current_user
 
 PAGINATE_BY = 10
 
@@ -55,6 +56,7 @@ def add_entry_post():
     entry = Entry(
         title=request.form["title"],
         content=request.form["content"],
+        author=current_user
     )
     session.add(entry)
     session.commit()
@@ -75,4 +77,14 @@ def login_post():
 
     login_user(user)
     return redirect(request.args.get('next') or url_for("entries"))
+
+@app.route("/entry/<int:id>")
+def singlepost(id):
+    entry = session.query(Post).filter_by(id=id).one()
+    return render_template("single_entry.html", entry=entry, id=id)
+
+
+
+
+#{% if current_user.is_authenticated %}
 

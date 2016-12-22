@@ -12,6 +12,10 @@
             {{ entry.title }}
         </h1>
         {{ entry.content | markdown }}
+        {{ entry.author.name }} 
     </div>
 </div>
 {% endmacro %}
+
+
+########### line 15:does this go here? add to the metadata div in your render_entry

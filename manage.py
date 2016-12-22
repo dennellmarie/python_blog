@@ -6,6 +6,10 @@ from getpass import getpass
 from werkzeug.security import generate_password_hash
 from blog.database import User
 
+# adding migration management commands to link User and Entry objects
+from flask_migrate import Migrate, MigrateCommand
+from blog.database import Base
+
 manager = Manager(app)
 
 @manager.command #flask script that runs external commands/runs the app
@@ -25,9 +29,6 @@ def seed():
         session.add(entry)
     session.commit()
 
-if __name__ == "__main__":
-    manager.run()
-
 @manager.command 
 def adduser():
     name = input("Name: ")
@@ -44,3 +45,14 @@ def adduser():
                 password=generate_password_hash(password))
     session.add(user)
     session.commit()
+
+
+class DB(object):                  # designed to hold metadata object
+    def __init__(self, metadata):
+        self.metadata = metadata
+
+migrate = Migrate(app, DB(Base.metadata))   # create an instance of Migrate class, passing in app and instance of DB class
+manager.add_command('db', MigrateCommand)   # add all of the commands held in Migrate class to management script
+
+if __name__ == "__main__":
+    manager.run()
