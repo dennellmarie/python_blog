@@ -10,7 +10,7 @@ from .database import session, Entry
 
 # to handle log-in
 from flask import flash
-from flask_login import login_user
+from flask_login import login_user, logout_user
 from werkzeug.security import check_password_hash
 from .database import User
 from flask_login import login_required
@@ -79,8 +79,8 @@ def login_post():
     return redirect(request.args.get('next') or url_for("entries"))
 
 @app.route("/logout", methods=["GET"])
-@login_required
 def logout_get():
+    logout_user()
     return redirect(url_for("entries"))
 
 @app.route("/entry/<int:id>")

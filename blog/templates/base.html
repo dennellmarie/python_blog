@@ -22,14 +22,14 @@
 
     <body>
         <header>
-            blogr
+            coding inspos &amp; reads
         </header>
         <div class="navbar navbar-static-top" role="navigation">
             <div class="container">
-                <button type='button' class="btn btn-default navbar-btn">
+                
                 {% if current_user.is_authenticated %}
-                  hello {{ current_user.name }}!
-                {% endif %}</button>
+                  <button type='button' class="btn btn-default navbar-btn">hello {{ current_user.name }}!</button>
+                {% endif %}
                 <button type='button' class="btn btn-default navbar-btn"><a href="{{ url_for('entries') }}">home</a></button>
                 <button type='button' class="btn btn-default navbar-btn"><a href="{{ url_for('add_entry_get') }}">add entry</a></button>
                 <button type='button' class="btn btn-default navbar-btn"><a href="{{url_for('login_get')}}">log in</a></button>

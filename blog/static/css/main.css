@@ -81,9 +81,6 @@ div.col-md-10 {
 
 /*---------------------add entry page-----------------------*/
 
-h1 {
-
-}
 
 button.btn.btn-default {
 	background-color: #fff;
@@ -106,12 +103,6 @@ form {
 input#email.form-control, input#password.form-control, input#title.form-control {
 	width: 300px;
 	background: #fff;
-}
-
-input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
-    background-color: #fff;
-    background-image: none;
-    color: rgb(0, 0, 0);
 }
 
 label {
