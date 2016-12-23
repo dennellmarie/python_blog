@@ -79,8 +79,9 @@ def login_post():
     return redirect(request.args.get('next') or url_for("entries"))
 
 @app.route("/logout", methods=["GET"])
+@login_required
 def logout_get():
-    return redirect(url_for("login_get"))
+    return redirect(url_for("entries"))
 
 @app.route("/entry/<int:id>")
 def single_entry(id):
@@ -110,9 +111,6 @@ def delete_entry(id):
         return redirect(url_for('entries'))
     else:
         return render_template('delete_entry.html', i=entryToDelete)
-
-
-
 
 
 

@@ -1,5 +1,121 @@
+@import url('https://fonts.googleapis.com/css?family=Cookie|Quicksand');
+
+body {
+	font-family: 'Quicksand', sans-serif;
+	background-color: #95FFEA;
+}
+
 div.metadata {
     margin-top: 20px;
     font-size: 1.5em;
 }
+
+a {
+	color: #000;
+}
+
+footer{
+	border-top: 4px solid #DDB678;
+    border-bottom: 4px solid #DDB678;
+    text-align: right;
+    color: #DDB678;
+    margin: 50px 20px;
+}
+
+footer h5 {
+	margin: 10px;
+}
+
+/*---------------------home page----------------------------*/
+
+header {
+	color: #DDB678;
+	border-top: 4px solid #DDB678;
+	border-bottom: 4px solid #DDB678;
+	margin: 50px 20px;
+	font-family: 'Cookie', cursive;
+	font-size: 72px;
+	text-align: center;
+}
+
+div.navbar.navbar-static-top {
+	margin-top: -10px;
+}
+
+div.row {
+	background-color: #fff;
+    border-radius: 5px;
+    border: 4px solid #DDB678;
+    margin-bottom: 20px;	
+}
+
+button.btn.btn-default.navbar-btn {
+	background-color: #fff;
+    border-radius: 5px;
+    border: 3px solid #DDB678;
+    margin: 10px 10px 10px 0;
+    padding: 10px;
+}
+
+.date {
+	border-bottom: 3px solid #DDB678;
+	text-align: center;
+}
+
+a.entry-header {
+	color: #000;
+}
+
+.entry-author {
+	margin-bottom: 20px;
+	border-bottom: 3px solid #DDB678;
+	text-align: right;
+	padding: 10px;
+}
+
+div.col-md-10 {
+    margin: 10px;
+    width: 70%;
+}
+
+
+/*---------------------add entry page-----------------------*/
+
+h1 {
+
+}
+
+button.btn.btn-default {
+	background-color: #fff;
+    border-radius: 5px;
+    border: 3px solid #DDB678;
+    margin: 10px 0;
+    padding: 10px;
+}
+
+
+/*---------------------log in page--------------------------*/
+
+form {
+	background-color: #fff;
+    border-radius: 5px;
+    border: 4px solid #DDB678;
+    padding: 50px;
+}
+
+input#email.form-control, input#password.form-control, input#title.form-control {
+	width: 300px;
+	background: #fff;
+}
+
+input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
+    background-color: #fff;
+    background-image: none;
+    color: rgb(0, 0, 0);
+}
+
+label {
+	padding: 20px 0;
+}
+
 
